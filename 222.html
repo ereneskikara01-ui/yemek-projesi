@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>Cuma Günü Yemeğe Gidelim mi?</title>
+
+<style>
+    body {
+        text-align: center;
+        font-family: Arial, sans-serif;
+        background: #ffe6f2;
+        padding: 40px;
+    }
+
+    h1 {
+        font-size: 38px;
+        color: #d10070;
+        margin-bottom: 40px;
+    }
+
+    .decor {
+        font-size: 20px;
+        color: #ff1a75;
+        font-weight: bold;
+        opacity: 0.8;
+    }
+
+    .heartrow {
+        margin-top: 15px;
+        margin-bottom: 25px;
+        font-size: 26px;
+    }
+
+    button {
+        font-size: 22px;
+        padding: 14px 24px;
+        margin: 20px;
+        border-radius: 14px;
+        border: none;
+        cursor: pointer;
+        transition: 0.25s;
+    }
+
+    .yes {
+        background-color: #ff4da6;
+        color: white;
+    }
+
+    .no {
+        background-color: #666;
+        color: white;
+    }
+
+    #msg {
+        font-size: 24px;
+        margin-top: 30px;
+        color: #b30059;
+        min-height: 35px;
+    }
+</style>
+</head>
+<body>
+
+<div class="decor">Cansu ❤️ Eren</div>
+<div class="heartrow">💕 💖 💕</div>
+
+<h1>Cuma günü yemeğe gidelim mi?</h1>
+
+<button class="yes" id="yesBtn">Evet ❤️</button>
+<button class="no" id="noBtn">Hayır 🙄</button>
+
+<div id="msg"></div>
+
+<script>
+    var yesBtn = document.getElementById("yesBtn");
+    var noBtn = document.getElementById("noBtn");
+    var msg = document.getElementById("msg");
+
+    var grow = 1;
+    var index = 0;
+
+    var mesajlar = [
+        "Emin misin?",
+        "Bak çok güzel yer biliyorum 😄",
+        "Gerçekten gelmiyo musun?",
+        "Ama bak ayıp ediyosun 😂",
+        "Kırılıyorum he...",
+        "Son kararın bu mu?",
+        "Ismarlıycam diyorum!",
+        "Hadi ama evet de 🥺"
+    ];
+
+    yesBtn.onclick = function() {
+        var html = "";
+        html += "<h1 style='font-size:50px; color:#d10070;'>HARİKAAA! 🎉❤️</h1>";
+        html += "<p style='font-size:28px;'>Cuma akşamı yemeğe gidiyoruz 😎</p>";
+        html += "<p style='font-size:22px; color:#ff1a75;'>Cansu ❤️ Eren</p>";
+        document.body.innerHTML = html;
+    };
+
+    noBtn.onclick = function() {
+        grow = grow + 0.3;
+        yesBtn.style.transform = "scale(" + grow + ")";
+
+        msg.innerHTML = mesajlar[index % mesajlar.length];
+        index = index + 1;
+    };
+</script>
+
+</body>
+</html>
